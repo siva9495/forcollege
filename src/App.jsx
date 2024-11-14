@@ -10,7 +10,7 @@ function App() {
 
       <Router>
         <Routes>
-          <Route path="/" element={<NavbarLoginActivity/>} />
+          <Route path="/" element={<UserLoginActivity/>} />
         </Routes>
       </Router>
       
