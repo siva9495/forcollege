@@ -3,6 +3,9 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
     /* background-color: #032054; */
 }
 
