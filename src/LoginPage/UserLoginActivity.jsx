@@ -1,8 +1,100 @@
-import React, { useState } from 'react';
-import './UserLoginActivity.css';
+import React, { useState } from "react";
+import firebase from "../FIREBASE/firebase"; // Assumes firebase is initialized in this file
+import "./UserLoginActivity.css";
 
 const UserLoginActivity = () => {
-  const [formType, setFormType] = useState('login'); // 'login', 'register', or 'forgot'
+  const [formType, setFormType] = useState("login");
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirm_password: "",
+  });
+  const [error, setError] = useState("");
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleRegister = async () => {
+    const { name, email, password, confirm_password } = formData;
+    setError("");
+    if (!name || !email || !password || !confirm_password) {
+      setError("All fields are required");
+      return;
+    }
+    if (password !== confirm_password) {
+      setError("Passwords do not match");
+      return;
+    }
+    try {
+      const userCredential = await firebase
+        .auth()
+        .createUserWithEmailAndPassword(email, password);
+      const user = userCredential.user;
+      await firebase.database().ref("users").child(user.uid).set({ name, email });
+      await user.sendEmailVerification();
+      alert("Registration successful! Verification email sent.");
+      setFormType("login");
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
+  const handleLogin = async () => {
+    const { email, password } = formData;
+    setError("");
+    if (!email || !password) {
+      setError("Email and Password are required");
+      return;
+    }
+    try {
+      const userCredential = await firebase
+        .auth()
+        .signInWithEmailAndPassword(email, password);
+      const user = userCredential.user;
+      if (!user.emailVerified) {
+        setError("Please verify your email before logging in");
+        return;
+      }
+      alert("Login successful!");
+    } catch (err) {
+      if (err.code === "auth/user-not-found") {
+        setError("Not registered, Please register");
+      } else if (err.code === "auth/wrong-password") {
+        setError("Invalid credentials");
+      } else {
+        setError(err.message);
+      }
+    }
+  };
+
+  const handleForgotPassword = async () => {
+    const { email } = formData;
+    setError("");
+    if (!email) {
+      setError("Email is required");
+      return;
+    }
+    try {
+      await firebase.auth().sendPasswordResetEmail(email);
+      alert("Password reset email sent!");
+      setFormType("login");
+    } catch (err) {
+      if (err.code === "auth/user-not-found") {
+        setError("Invalid email");
+      } else {
+        setError(err.message);
+      }
+    }
+  };
+
+  const handleSubmit = () => {
+    if (formType === "login") handleLogin();
+    if (formType === "register") handleRegister();
+    if (formType === "forgot") handleForgotPassword();
+  };
 
   return (
     <div className="userlogin_container">
@@ -28,27 +120,41 @@ const UserLoginActivity = () => {
           </span>
         </div>
         <div className="userlogin_login">
-          <div className="userlogin_login_container"
+          <div
+            className="userlogin_login_container"
             style={{
-              height: formType === 'register' ? '450px' : '350px',
-              overflowY: formType === 'register' ? 'auto' : 'hidden',
+              height: formType === "register" ? "450px" : "350px",
+              overflowY: formType === "register" ? "auto" : "hidden",
             }}
           >
             <div className="login_container_title">
               <span className="login_container_title_span01">
-                {formType === 'login' && 'Login'}
-                {formType === 'register' && 'Register'}
-                {formType === 'forgot' && 'Forgot Password'}
+                {formType === "login" && "Login"}
+                {formType === "register" && "Register"}
+                {formType === "forgot" && "Forgot Password"}
               </span>
             </div>
-            <div className="login_conatiner_email_password"
+            <div
+              className="login_conatiner_email_password"
               style={{
-                // height: formType === 'register' ? '80%' : '60%',
-                overflowY: formType === 'register' ? 'auto' : 'hidden',
+                overflowY: formType === "register" ? "auto" : "hidden",
               }}
             >
-              {formType === 'login' && (
+              {formType !== "forgot" && (
                 <>
+                  {formType === "register" && (
+                    <div className="login_fr01_inner01">
+                      <span className="span_fr01_inner01">Name</span>
+                      <input
+                        className="input_fr01_inner01"
+                        type="text"
+                        name="name"
+                        placeholder="Enter Name"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                      />
+                    </div>
+                  )}
                   <div className="login_fr01_inner01">
                     <span className="span_fr01_inner01">Email</span>
                     <input
@@ -56,6 +162,8 @@ const UserLoginActivity = () => {
                       type="text"
                       name="email"
                       placeholder="Enter Email"
+                      value={formData.email}
+                      onChange={handleInputChange}
                     />
                   </div>
                   <div className="login_fr01_inner02">
@@ -65,51 +173,26 @@ const UserLoginActivity = () => {
                       type="password"
                       name="password"
                       placeholder="Enter Password"
+                      value={formData.password}
+                      onChange={handleInputChange}
                     />
                   </div>
+                  {formType === "register" && (
+                    <div className="login_fr01_inner04">
+                      <span className="span_fr01_inner04">Confirm Password</span>
+                      <input
+                        className="input_fr01_inner04"
+                        type="password"
+                        name="confirm_password"
+                        placeholder="Confirm Password"
+                        value={formData.confirm_password}
+                        onChange={handleInputChange}
+                      />
+                    </div>
+                  )}
                 </>
               )}
-              {formType === 'register' && (
-                <>
-                  <div className="login_fr01_inner01">
-                    <span className="span_fr01_inner01">Name</span>
-                    <input
-                      className="input_fr01_inner01"
-                      type="text"
-                      name="name"
-                      placeholder="Enter Name"
-                    />
-                  </div>
-                  <div className="login_fr01_inner02">
-                    <span className="span_fr01_inner02">Email</span>
-                    <input
-                      className="input_fr01_inner02"
-                      type="text"
-                      name="email"
-                      placeholder="Enter Email"
-                    />
-                  </div>
-                  <div className="login_fr01_inner03">
-                    <span className="span_fr01_inner03">Password</span>
-                    <input
-                      className="input_fr01_inner03"
-                      type="password"
-                      name="password"
-                      placeholder="Enter Password"
-                    />
-                  </div>
-                  <div className="login_fr01_inner04">
-                    <span className="span_fr01_inner04">Confirm Password</span>
-                    <input
-                      className="input_fr01_inner04"
-                      type="password"
-                      name="confirm_password"
-                      placeholder="Confirm Password"
-                    />
-                  </div>
-                </>
-              )}
-              {formType === 'forgot' && (
+              {formType === "forgot" && (
                 <div className="login_fr01_inner01">
                   <span className="span_fr01_inner01">Email</span>
                   <input
@@ -117,41 +200,47 @@ const UserLoginActivity = () => {
                     type="text"
                     name="email"
                     placeholder="Enter Email"
+                    value={formData.email}
+                    onChange={handleInputChange}
                   />
                 </div>
               )}
             </div>
+            {error && <div className="error_message">{error}</div>}
             <div className="login_register_forgotpassword">
-              {formType === 'login' && (
+              {formType === "login" && (
                 <>
                   <span
                     className="login_register_span01"
-                    onClick={() => setFormType('register')}
+                    onClick={() => setFormType("register")}
                   >
                     Register
                   </span>
                   <span
                     className="login_forgotpassword_span02"
-                    onClick={() => setFormType('forgot')}
+                    onClick={() => setFormType("forgot")}
                   >
                     Forgot Password?
                   </span>
                 </>
               )}
-              {(formType === 'register' || formType === 'forgot') && (
+              {(formType === "register" || formType === "forgot") && (
                 <span
                   className="login_register_span01"
-                  onClick={() => setFormType('login')}
+                  onClick={() => setFormType("login")}
                 >
                   Back to Login
                 </span>
               )}
             </div>
             <div className="login_container_submit">
-              <button className="login_container_submit_button">
-                {formType === 'login' && 'Login'}
-                {formType === 'register' && 'Register'}
-                {formType === 'forgot' && 'Submit'}
+              <button
+                className="login_container_submit_button"
+                onClick={handleSubmit}
+              >
+                {formType === "login" && "Login"}
+                {formType === "register" && "Register"}
+                {formType === "forgot" && "Submit"}
               </button>
             </div>
           </div>
