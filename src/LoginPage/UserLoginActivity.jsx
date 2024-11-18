@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import firebase from "../FIREBASE/firebase"; // Assumes firebase is initialized in this file
+import firebase from "../FIREBASE/firebase";
+import toast from "react-hot-toast";
 import "./UserLoginActivity.css";
 
 const UserLoginActivity = () => {
@@ -20,74 +21,89 @@ const UserLoginActivity = () => {
   const handleRegister = async () => {
     const { name, email, password, confirm_password } = formData;
     setError("");
+
     if (!name || !email || !password || !confirm_password) {
       setError("All fields are required");
       return;
     }
+
     if (password !== confirm_password) {
       setError("Passwords do not match");
       return;
     }
-    try {
-      const userCredential = await firebase
-        .auth()
-        .createUserWithEmailAndPassword(email, password);
-      const user = userCredential.user;
-      await firebase.database().ref("users").child(user.uid).set({ name, email });
-      await user.sendEmailVerification();
-      alert("Registration successful! Verification email sent.");
-      setFormType("login");
-    } catch (err) {
-      setError(err.message);
-    }
+
+    const registerPromise = firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then(async (userCredential) => {
+        const user = userCredential.user;
+        await firebase.database().ref("users").child(user.uid).set({ name, email });
+        await user.sendEmailVerification();
+        setFormType("login");
+      });
+
+    toast.promise(registerPromise, {
+      loading: "Registering, please wait...",
+      success: "Registration successful! Email sent for verification.",
+      error: (err) =>
+        err.code === "auth/email-already-in-use"
+          ? "Email is already registered."
+          : "Failed to register.",
+    });
   };
 
   const handleLogin = async () => {
     const { email, password } = formData;
     setError("");
+
     if (!email || !password) {
       setError("Email and Password are required");
       return;
     }
-    try {
-      const userCredential = await firebase
-        .auth()
-        .signInWithEmailAndPassword(email, password);
-      const user = userCredential.user;
-      if (!user.emailVerified) {
-        setError("Please verify your email before logging in");
-        return;
-      }
-      alert("Login successful!");
-    } catch (err) {
-      if (err.code === "auth/user-not-found") {
-        setError("Not registered, Please register");
-      } else if (err.code === "auth/wrong-password") {
-        setError("Invalid credentials");
-      } else {
-        setError(err.message);
-      }
-    }
+
+    const loginPromise = firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        if (!user.emailVerified) {
+          throw new Error("Please verify your email before logging in");
+        }
+        toast.success("Login successfully");
+      });
+
+    toast.promise(loginPromise, {
+      loading: "Logging in, please wait...",
+      success: "Login successful!",
+      error: (err) =>
+        err.message === "Please verify your email before logging in"
+          ? "Please verify your email."
+          : "Failed to login.",
+    });
   };
 
   const handleForgotPassword = async () => {
     const { email } = formData;
     setError("");
+
     if (!email) {
       setError("Email is required");
       return;
     }
-    try {
-      await firebase.auth().sendPasswordResetEmail(email);
-      alert("Password reset email sent!");
-      setFormType("login");
-    } catch (err) {
-      if (err.code === "auth/user-not-found") {
-        setError("Invalid email");
-      } else {
-        setError(err.message);
-      }
-    }
+
+    const forgotPromise = firebase
+      .auth()
+      .sendPasswordResetEmail(email)
+      .then(() => {
+        setFormType("login");
+        toast.success("Password reset email sent!");
+      });
+
+    toast.promise(forgotPromise, {
+      loading: "Sending reset email...",
+      success: "Password reset email sent!",
+      error: "Failed to send password reset email.",
+    });
   };
 
   const handleSubmit = () => {

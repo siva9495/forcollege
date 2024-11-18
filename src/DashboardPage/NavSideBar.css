@@ -1,0 +1,102 @@
+@import url('https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css');
+
+.div_sidebar{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 78px;
+    background-color: red;
+    padding: 7px 5px;
+    transition: all 0.5s ease;
+}
+
+.div_sidebar.active{
+    width: 250px;
+}
+
+.div_logo_content{
+    display: flex;
+    height: 50px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.div_logo_content .side_logo{
+    color: black;
+    display: flex;
+    height: 50px;
+    width: 80%;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.5s ease;
+    background-color: #eaeff2;
+    border-radius: 10px;
+}
+
+.div_sidebar.active .div_logo_content .side_logo{
+    opacity: 1;
+    pointer-events: none;
+}
+
+.side_logo img{
+    width: 40px;
+}
+
+
+/* .div_sidebar .div_logo_content .side_logo{
+    color: black;
+    display: flex;
+    height: 50px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.5s ease;
+    background-color: #eaeff2;
+    border-radius: 10px;
+} 
+
+.div_sidebar.active .div_logo_content .side_logo{
+    opacity: 1;
+    pointer-events: none;
+}
+
+.side_logo img{
+    width: 40px;
+    margin-left: -40px;
+    margin-top: 5px;
+}
+
+.side_logo .logo_content_span01{
+    margin-top: -2px;
+    margin-left: 15px;
+    font-weight: 800;
+}
+
+.div_sidebar #btn{
+    position: relative;
+    color: black;
+    font-size: 20px;
+    height: 48px;
+    width: 48px;
+    text-align: center;
+    line-height: 50px;
+    font-weight: 600;
+    background-color: #eaeff2;
+    border-radius: 12px;
+}
+
+.div_sidebar.active #btn{
+    left: 90%;
+}
+
+.div_sidebar.active #btn{
+    background-color: none;
+} */
+
+
+
