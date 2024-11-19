@@ -27,7 +27,9 @@ const NavSideBar = () => {
                 <img src={CBITLOGO} alt='CBITLOGO' className='img_logo'/>
                 <span className='logo_content_span01'>CBIT Careers</span>
             </div>
-            <i className='bx bx-menu' id='btn'></i>
+            <div className='side_logo_btn'>
+              <i className='bx bx-menu' id='btn'></i>
+            </div>
         </div>
         <ul className='ul_nav_list'>
             <li>
