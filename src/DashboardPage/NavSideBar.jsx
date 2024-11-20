@@ -35,9 +35,58 @@ const NavSideBar = () => {
             <li>
                 <a>
                   <i className='bx bx-user'></i>
-                  <span className='links_name'>Profile</span>
+                  <span className='links_name'>Dashboard</span>
                 </a>
-                <span className='tooltip'>Profile</span>
+                <span className='tooltip'>Dashboard</span>
+            </li>
+            <li>
+                <a>
+                  <i className='bx bx-user'></i>
+                  <span className='links_name'>Current Jobs</span>
+                </a>
+                <span className='tooltip'>Current Jobs</span>
+            </li>
+            <li>
+                <a>
+                  <i className='bx bx-user'></i>
+                  <span className='links_name'>Applied Jobs</span>
+                </a>
+                <span className='tooltip'>Applied Jobs</span>
+            </li>
+            <li>
+                <a>
+                  <i className='bx bx-user'></i>
+                  <span className='links_name'>Qualification Details</span>
+                </a>
+                <span className='tooltip'>Qualification Details</span>
+            </li>
+            <li>
+                <a>
+                  <i className='bx bx-user'></i>
+                  <span className='links_name'>Work Experience</span>
+                </a>
+                <span className='tooltip'>Work Experience</span>
+            </li>
+            <li>
+                <a>
+                  <i className='bx bx-user'></i>
+                  <span className='links_name'>Productivity Details</span>
+                </a>
+                <span className='tooltip'>Productivity Details</span>
+            </li>
+            <li>
+                <a>
+                  <i className='bx bx-user'></i>
+                  <span className='links_name'>Reference Details</span>
+                </a>
+                <span className='tooltip'>Reference Details</span>
+            </li>
+            <li>
+                <a>
+                  <i className='bx bx-user'></i>
+                  <span className='links_name'>Documents Upload</span>
+                </a>
+                <span className='tooltip'>Documents Upload</span>
             </li>
         </ul>
     </div>
