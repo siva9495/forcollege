@@ -4,6 +4,7 @@ import UserLoginActivity from "./LoginPage/UserLoginActivity";
 import NavbarLoginActivity from "./LoginPage/NavbarLoginActivity";
 import HomePageActivity from "./LoginPage/HomePageActivity";
 import NavSideBar from "./DashboardPage/NavSideBar";
+import DashboardActivity from "./DashboardPage/DashboardActivity";
 
 function App() {
   
@@ -13,7 +14,7 @@ function App() {
       <Toaster/>
       <Router>
         <Routes>
-          <Route path="/" element={<NavSideBar/>} />
+          <Route path="/" element={<DashboardActivity/>} />
         </Routes>
       </Router>
       
