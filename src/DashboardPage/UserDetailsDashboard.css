@@ -13,11 +13,180 @@
     background-color: white;
     border-radius: 10px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+}
+
+.div_userdetailsdashboard_content_details{
+    width: 70%;
+    height: 100%;
+    /* background-color: red; */
+    display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.div_userdetailsdashboard_content_details{
+.ud_sub_content_details{
+    width: 90%;
+    height: 90%;
+    /* background-color: #eaeff2; */
+    display: flex;
+    flex-direction: column;
+}
 
+.sub_content_userdetails{
+    width: 100%;
+    height: 30%;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.sub_content_container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.sub_userdetails_title{
+    width: 100%;
+    height: 30%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#sub_ud_title_span_01{
+    font-size: 18px;
+    color: white;
+    font-weight: 600;
+}
+
+.sub_userdetails_name_email_container{
+    width: 100%;
+    height: 70%;
+    /* background-color: red; */
+    display: flex;
+    flex-direction: row;
+}
+
+.sub_userdetails_name_email_manually{
+    width: 50%;
+    height: 100%;
+    /* background-color: yellow; */
+    display: flex;
+    flex-direction: column;
+}
+
+.sub_username_manually{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+    /* background-color: white; */
+}
+
+#sub_username_manually_span_01{
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.sub_useremail_manually{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 2px solid black;
+    /* background-color: white; */
+}
+
+#sub_useremail_manually_span_02{
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.sub_userdetails_name_email_db{
+    width: 50%;
+    height: 100%;
+    /* background-color: green; */
+    display: flex;
+    flex-direction: column;
+}
+
+.sub_username_db{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid black;
+    /* background-color: white; */
+}
+
+#sub_username_db_span_01{
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.sub_useremail_db{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: white; */
+}
+
+#sub_useremail_db_span_02{
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.sub_content_upcoming_interviews{
+    width: 100%;
+    height: 20%;
+    margin-top: 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.sub_upcoming_interview_container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.sub_ui_content_title{
+    width: 100%;
+    height: 45%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#sub_ui_content_title_span_01{
+    font-size: 18px;
+    color: white;
+    font-weight: 600;
+}
+
+.sub_ui_content_interview_detail{
+    width: 100%;
+    height: 55%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* background-color: red; */
+}
+
+#sub_ui_content_interview_detail_span_01{
+    font-size: 18px;
+    font-weight: 600;
 }
