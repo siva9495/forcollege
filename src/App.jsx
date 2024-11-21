@@ -5,6 +5,7 @@ import NavbarLoginActivity from "./LoginPage/NavbarLoginActivity";
 import HomePageActivity from "./LoginPage/HomePageActivity";
 import NavSideBar from "./DashboardPage/NavSideBar";
 import DashboardActivity from "./DashboardPage/DashboardActivity";
+import UserDetailsDashboard from "./DashboardPage/UserDetailsDashboard";
 
 function App() {
   

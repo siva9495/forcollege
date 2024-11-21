@@ -1,0 +1,23 @@
+.div_userdetailsdashboard_container{
+    width: 100%;
+    height: 100vh;
+    background-color: #eaeff2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.div_userdetailsdashboard_content{
+    width: 90%;
+    height: 90%;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.div_userdetailsdashboard_content_details{
+
+}
