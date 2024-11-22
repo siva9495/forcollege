@@ -1,5 +1,6 @@
 import React from 'react'
 import './UserDetailsDashboard.css'
+import { FiUpload } from "react-icons/fi";
 
 const UserDetailsDashboard = () => {
   return (
