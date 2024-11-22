@@ -56,6 +56,13 @@ const NavSideBar = () => {
             <li>
                 <a>
                   <i className='bx bx-user'></i>
+                  <span className='links_name'>Personal Details</span>
+                </a>
+                <span className='tooltip'>Personal Details</span>
+            </li>
+            <li>
+                <a>
+                  <i className='bx bx-user'></i>
                   <span className='links_name'>Qualification Details</span>
                 </a>
                 <span className='tooltip'>Qualification Details</span>
