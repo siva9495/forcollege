@@ -1,0 +1,181 @@
+.div_cj_container{
+    width: 100%;
+    height: 100vh;
+    background-color: #eaeff2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cj_container_content{
+    width: 95%;
+    height: 95%;
+    /* background-color: white; */
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cj_content_title{
+    width: 100%;
+    height: 7%;
+    /* background-color: blue; */
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    border-radius: 10px;
+}
+
+#cj_content_title_span_01{
+    font-size: 20px;
+    font-weight: 600;
+    color: black;
+    margin-left: 20px;
+}
+
+.cj_content_table{
+    width: 100%;
+    height: 89%;
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
+
+.cj_content_table table{
+    width: 90%;
+    border-collapse: collapse;
+    /* color: var(--Black-12, #1A181E); */
+    font-family: var(--font-inter);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    /* background-color: green; */
+}
+
+.cj_content_table table thead{
+    height: 40px;
+    /* background: var(--Black-95, #F2F2F2); */
+    background-color: black;
+}
+
+.table_cj_s_no{
+    padding: 15px;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+}
+
+.table_cj_action{
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+th{
+    width: 150.67px;
+    height: 20px;
+    text-align: left; 
+    /* background-color: red; */
+}
+
+td {
+    width: 150.67px;
+    height: 20px;
+    text-align: left;
+    /* background-color: green; */
+    /* border-bottom: 1px solid #ddd;  */
+    border-bottom: 1px solid black; 
+}
+
+.table_cj_td_s_no{
+    width: 10%;
+    padding: 15px;
+    color: var(--Primary-Blue, #146EB4);
+    font-family: var(--font-galano);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+}
+
+.table_cj_action{
+    width: 100%;
+    height: 50px;
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table_cj_s_no,
+.table_cj_campus,
+.table_cj_nof_positions,
+.table_cj_no_f_position,
+.table_cj_exp_req,
+.table_cj_job_ref_no,
+.table_cj_action{
+    color: white;
+    /* color: var(--Black-30, #4D4D4D); */
+    font-family: var(--font-inter);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+}
+
+.div_table_cj_btn_v_details{
+    width: 100%;
+    height: 100%;
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.action_cj_btn_container{
+    width: 60%;
+    height: 60%;
+    background-color: #000000;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.action_cj_faeye{
+    color: white;
+    font-size: 12px;
+}
+
+#action_cj_btn_span01{
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+.action_cj_btn_container:hover{
+    background-color: white;
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+.action_cj_btn_container:hover .action_cj_faeye{
+    color: black;
+}
+
+.action_cj_btn_container:hover #action_cj_btn_span01{
+    color: black;
+}
+
+
+.cj_table_show_entiies{
+    width: 100%;
+    height: 4%;
+    /* background-color: yellow; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
