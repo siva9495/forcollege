@@ -9,7 +9,7 @@ const CurrentJobsActivity = () => {
                 <span id='cj_content_title_span_01'>Current Jobs</span>
             </div>
             <div className='cj_content_table'>
-                
+                <span></span>
             </div>
         </div>
     </div>
