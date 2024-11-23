@@ -4,12 +4,13 @@ import './DashboardActivity.css'
 import NavSideBar from './NavSideBar'
 import UserDetailsDashboard from './UserDetailsDashboard'
 import CurrentJobsActivity from '../CurrentJobsPage/CurrentJobsActivity'
+import PersonalDetailsActivity from '../PersonalDetailsPage/PersonalDetailsActivity'
 
 const DashboardActivity = () => {
   return (
     <div className='div_dashboard'>
       <NavSideBar />
-      <CurrentJobsActivity />
+      <PersonalDetailsActivity />
     </div>
   )
 }
