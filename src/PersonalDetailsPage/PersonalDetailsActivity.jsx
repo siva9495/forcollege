@@ -12,7 +12,9 @@ const PersonalDetailsActivity = () => {
                 <div className='pd_userenter_fr01'>
                     <div className='ue_fr01_inner01'>
                         <span className='ue_span_fr01_inner01'>Date of Birth</span>
-                        <input className='ue_input_fr01_inner01' type="text" name="dateofbirth" placeholder="Enter DOB" />
+                        <div className='ue_input_fr01_wrapper_inner01'>
+                            <input className='ue_input_fr01_inner01' type="date" name="dateofbirth" placeholder="Enter DOB" />
+                        </div>
                     </div>
                     <div className='ue_fr01_inner02'>
                         <span className='ue_span_fr01_inner02'>Gender</span>
