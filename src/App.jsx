@@ -1,26 +1,18 @@
-import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
-import UserLoginActivity from "./LoginPage/UserLoginActivity";
-import NavbarLoginActivity from "./LoginPage/NavbarLoginActivity";
-import HomePageActivity from "./LoginPage/HomePageActivity";
-import NavSideBar from "./DashboardPage/NavSideBar";
-import DashboardActivity from "./DashboardPage/DashboardActivity";
-import UserDetailsDashboard from "./DashboardPage/UserDetailsDashboard";
+import DashboardActivity from './DashboardPage/DashboardActivity';
 
 function App() {
-  
-
   return (
     <>
-      <Toaster/>
+      <Toaster />
       <Router>
         <Routes>
-          <Route path="/" element={<DashboardActivity/>} />
+          <Route path="/dashboard/*" element={<DashboardActivity />} />
         </Routes>
       </Router>
-      
     </>
-  )
+  );
 }
 
-export default App
+export default App;
