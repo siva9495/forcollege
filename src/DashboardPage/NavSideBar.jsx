@@ -61,7 +61,7 @@ const NavSideBar = () => {
                 <span className='tooltip'>Personal Details</span>
             </li>
             <li>
-                <a>
+                <a href='/qualification-details'>
                   <i className='bx bx-user'></i>
                   <span className='links_name'>Qualification Details</span>
                 </a>

@@ -5,6 +5,7 @@ import NavSideBar from './NavSideBar';
 import UserDetailsDashboard from '../DashboardPage/UserDetailsDashboard';
 import CurrentJobsActivity from '../CurrentJobsPage/CurrentJobsActivity';
 import PersonalDetailsActivity from '../PersonalDetailsPage/PersonalDetailsActivity';
+import QualificationDetailsAddingPage from '../QualificationDetailsPage/QualificationDetailsAddingPage';
 
 const DashboardActivity = () => {
   return (
@@ -15,6 +16,7 @@ const DashboardActivity = () => {
           <Route path="/user-details" element={<UserDetailsDashboard />} />
           <Route path="/current-jobs" element={<CurrentJobsActivity />} />
           <Route path="/personal-details" element={<PersonalDetailsActivity />} />
+          <Route path="/qualification-details" element={<QualificationDetailsAddingPage />} />
         </Routes>
     </div>
   );
