@@ -101,8 +101,8 @@
 .ue_input_fr01_inner01::-webkit-calendar-picker-indicator {
     position: absolute;
     right: 10px;
-    color: transparent;
-    background: url('calendar-icon.svg') no-repeat center;
+    color: #032054;
+    
     width: 24px;
     height: 24px;
     cursor: pointer;
@@ -686,3 +686,57 @@
     color: #FFFFFF;
     opacity: 1;
 }
+
+.custom-select-wrapper {
+    position: relative;
+    width: 301px; /* Adjust width to match your input fields */
+    
+  }
+  
+  select {
+    appearance: none; /* Remove default browser styling */
+    -webkit-appearance: none; /* Safari */
+    -moz-appearance: none; /* Firefox */
+    width: 100%;
+    height: 50px;
+    padding: 0 12px; /* Add padding for text */
+    padding-right: 40px; /* Space for the dropdown icon */
+    border: 1px solid #032054;
+    border-radius: 6px;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    color: #032054; /* Ensure consistent text color */
+    background-color: white;
+    position: relative;
+    outline: none; /* Remove focus outline */
+    box-shadow: none; /* Remove any default box-shadow */
+    cursor: pointer; /* Ensure consistent pointer style */
+  }
+  
+  select:focus,
+  select:hover {
+    outline: none; /* Remove focus outline */
+    box-shadow: none; /* Ensure no shadow effect */
+    border-color:1px solid #032054; /* Keep consistent border color */
+    color: #032054; /* Ensure consistent text color */
+    background-color: white; /* Ensure consistent background */
+  }
+  
+  select option {
+    color: #032054; /* Ensure consistent text color for options */
+    background-color: white; /* Match dropdown background */
+  }
+  
+  .custom-select-icon {
+    position: absolute;
+    margin-top: 5px;
+    right: 5px; /* Align the icon inside the input */
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none; /* Prevent clicks on the icon */
+    font-size: 24px; /* Size of the dropdown icon */
+    color: #032054; /* Color of the dropdown icon */
+  }
+
+  
+  

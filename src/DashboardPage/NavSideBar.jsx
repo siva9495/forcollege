@@ -33,14 +33,14 @@ const NavSideBar = () => {
         </div>
         <ul className='ul_nav_list'>
             <li>
-                <a href="/dashboard/user-details">
+                <a href="/user-details">
                   <i className='bx bx-user'></i>
                   <span className='links_name'>Dashboard</span>
                 </a>
                 <span className='tooltip'>Dashboard</span>
             </li>
             <li>
-                <a href="/dashboard/current-jobs">
+                <a href="/current-jobs">
                   <i className='bx bx-user'></i>
                   <span className='links_name'>Current Jobs</span>
                 </a>
@@ -54,7 +54,7 @@ const NavSideBar = () => {
                 <span className='tooltip'>Applied Jobs</span>
             </li>
             <li>
-                <a href="/dashboard/personal-details">
+                <a href="/personal-details">
                   <i className='bx bx-user'></i>
                   <span className='links_name'>Personal Details</span>
                 </a>
